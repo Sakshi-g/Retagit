@@ -1,0 +1,74 @@
+
+{% extends "base.html" %}
+{% load cart %}
+<% wishlist %}
+{% block title %}reTAGit | Add Product {% endblock%}
+{% block content %}
+
+
+
+<div class="container mt-5" >
+
+
+    <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+
+
+
+
+        {% csrf_token %}
+        <div class="row">
+
+
+            <div class="col-md-12">
+                <label>Product Name</label>
+                <input type="text" class="form-control" placeholder="Product Name" name="name">
+            </div>
+
+            <div class="col-md-12">
+                <br>
+                <label>Price</label>
+                <input type="text" class="form-control" placeholder="Product Price" name="price">
+            </div>
+
+            <div class="col-md-12">
+                <br>
+                <label>Category</label>
+
+                <select name= "category" class="form-control" placeholder="Product Category" >
+                <option value="1">Women Wadrobe</option>
+                <option value="2">Men Wardrobe</option>
+                <option value="3">Electronics</option>
+                <option value="4">Accessories</option>
+                <option value="5">Miscellaneous</option>
+              </select>
+
+
+
+            </div>
+
+            <div class="col-md-12">
+                <br>
+                <label>Description</label>
+                <input type="text" class="form-control" placeholder="Product Description" name="description">
+            </div>
+
+            <div class="col-md-12">
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+            <br>
+            <div class="col-md-12">
+                <label>Product Picture</label>
+                <input type="file" name="image" class="form-control" >
+                </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Add Product</button>
+
+    </form>
+
+</div>
+
+
+{% endblock %}
